@@ -81,10 +81,11 @@ full documentation.
 
 ## Next steps
 
-1. Translate the planning TMX into a real PZ map export path via WorldEd.
-2. Verify WorldEd export produces a valid cell outside the repository.
-3. Generate lotpack/lotheader/bin files and load-test in Project Zomboid locally.
-4. Commit generated map exports only after a successful local load test.
+WorldEd GUI export was attempted and did not produce lotpack output. The project
+is moving to a deterministic mapmaker layer built on top of CellForge instead.
+
+See [docs/MAPMAKER_DIRECTION.md](docs/MAPMAKER_DIRECTION.md) for the full decision
+record, license boundaries, and next technical steps.
 
 ---
 
