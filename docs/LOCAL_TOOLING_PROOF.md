@@ -89,3 +89,28 @@ Manual TileZed painting will resume when:
 - B42-compatible tooling is verified and the workflow is re-tested from scratch.
 
 See docs/CELLFORGE_BLOCKOUT.md for the current planning approach.
+
+## CellForge TMX — opened visibly in TileZed
+
+**Date: 2026-05-30**
+
+A scratch PowerShell experiment generated a basic TMX:
+
+```text
+E:\Omni\Zomboid\scratch\tilezed-basic-cell\canal-garage-cell-basic.tmx
+```
+
+This TMX opened visibly in TileZed with the correct 300x300 layout and colour tiles.
+
+CellForge (`source/cellforge/render-cell.ps1`) was then updated to generate an
+equivalent TMX from the canonical JSON cell definition. The generated TMX uses
+the same format: base64+gzip-compressed uint32 little-endian GID data, a 9-tile
+colour strip tileset (`blockout-tiles.png`), and `tilewidth/tileheight="32"`.
+
+**Claim boundary:**
+
+- The CellForge TMX opens in TileZed. That is the only verified claim.
+- This is NOT a Project Zomboid load-tested map export.
+- No lotpack/lotheader/bin files were generated.
+- No playable status is claimed.
+- Generated files remain under `.local/cellforge/` (gitignored) only.

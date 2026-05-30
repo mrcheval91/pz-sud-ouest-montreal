@@ -18,9 +18,13 @@ without requiring TileZed to be functional.
 1. Reads `source/cellforge/canal-garage-cell.json` — the canonical cell definition.
 2. Renders a PNG blockout to `.local/cellforge/canal-garage-cell-blockout.png`.
 3. Writes a markdown inventory report to `.local/cellforge/canal-garage-cell-report.md`.
+4. Generates a 9-tile colour strip to `.local/cellforge/blockout-tiles.png` (TileZed tileset image).
+5. Generates a TileZed-openable TMX to `.local/cellforge/canal-garage-cell-basic.tmx`.
 
-Output goes to `.local/` which is gitignored. Nothing is written into `media/maps`.
+All output goes to `.local/` which is gitignored. Nothing is written into `media/maps`.
 No lotpack/lotheader/bin files are produced.
+
+**The TMX is a planning artifact, not a Project Zomboid load-tested map export.**
 
 ---
 
@@ -54,37 +58,52 @@ Output appears under `.local\cellforge\` (created on first run).
 | `landmark` | Garage Bellemare sign position |
 | `spawn` | Depanneur sidewalk spawn point |
 
-Edit the JSON to adjust layout. Re-run the script to regenerate the PNG.
+Edit the JSON to adjust layout. Re-run the script to regenerate all outputs.
 
 ---
 
-## Colour key
+## Colour key (PNG blockout and TMX tiles)
 
-| Colour | Meaning |
-|---|---|
-| Dark green | Grass / open ground |
-| Dark grey | Asphalt road |
-| Light tan | Sidewalk |
-| Brown | Building footprint |
-| Dark brown | Roof overlay |
-| Tan/dirt | Industrial yard |
-| Grey border | Chain-link fence |
-| Gravel grey | Service alley |
-| Bright green | Spawn marker |
-| Yellow | Landmark marker |
+| GID | Colour | Meaning |
+|---|---|---|
+| 1 | Dark green | Grass / open ground |
+| 2 | Dark grey | Road / asphalt |
+| 3 | Light tan | Sidewalk |
+| 4 | Brown | Row house |
+| 5 | Orange-brown | Depanneur / corner store |
+| 6 | Blue-grey | Garage / auto shop |
+| 7 | Tan/dirt | Industrial yard |
+| 8 | Yellow | Landmark marker |
+| 9 | Bright green | Spawn marker |
+
+The PNG blockout additionally renders roof overlays, fence borders, and text labels
+on top of the base colours. These are visual-only and do not correspond to GIDs.
+
+---
+
+## TMX output
+
+`canal-garage-cell-basic.tmx` uses the same format as the scratch TMX that opened
+visibly in TileZed (see docs/LOCAL_TOOLING_PROOF.md). It references
+`blockout-tiles.png` as its tileset — both files must be in the same directory.
+
+To open in TileZed: File → Open → `.local\cellforge\canal-garage-cell-basic.tmx`.
+
+**This is not a Project Zomboid map export.** It contains no lotpack, lotheader,
+or bin files and has not been load-tested in-game.
 
 ---
 
 ## Limitations
 
-- This is a 2D planning blockout, not a Project Zomboid map.
-- No tile data, zone data, or loot definitions are generated.
-- The PNG is a layout reference only. It does not load into PZ.
-- When TileZed painting resumes, this JSON serves as the ground truth for layout.
+- Planning artifact only — not a Project Zomboid map.
+- No zone data, loot definitions, or PZ-specific metadata are generated.
+- The TMX opens in TileZed for visual layout review only.
+- When TileZed manual painting resumes, this JSON is the ground truth for layout.
 
 ---
 
 ## Next step
 
-Once TileZed tile palette workflow is resolved (or B42 mapping tools are verified),
-translate this JSON layout into a WorldEd cell using the blockout as a reference guide.
+Use the TMX as a visual reference when translating the layout into a WorldEd cell.
+Verify B42-compatible TileZed/WorldEd before making any PZ compatibility claims.
