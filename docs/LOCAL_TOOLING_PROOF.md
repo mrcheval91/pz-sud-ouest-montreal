@@ -60,6 +60,10 @@ No `.tmx` files were committed or created inside the repository.
 
 Generated map files remain blocked until local load testing passes.
 
-## Open issue
+## WorldEd launch verification
 
-WorldEd previously showed a `Tilesets.txt` error before the config pass. TileZed now opens and saves a scratch map, but WorldEd still needs a clean verification pass before generated map exports are committed.
+WorldEd previously showed a `Tilesets.txt` error before the config pass.
+
+After running the local config tool, WorldEd opened cleanly without the `Tilesets.txt` popup.
+
+This is only a launch proof. WorldEd export and Project Zomboid load testing are still pending before generated map exports are committed.
