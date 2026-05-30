@@ -1,0 +1,6 @@
+-- PLACEHOLDER: map.info for PZ Sud-Ouest Montreal
+-- This file will be populated once TileZed/WorldEd cell export is verified locally.
+-- Do not claim this is a functional map file until a load test passes.
+
+title=PZ Sud-Ouest Montreal
+lots=0,0,0,0

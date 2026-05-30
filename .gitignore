@@ -1,0 +1,56 @@
+# Tool downloads and installers (anchored to root to avoid matching source/ subdirs)
+/TileZed*/
+/WorldEd*/
+/BuildingEd*/
+*.exe
+*.msi
+*.zip
+*.7z
+
+# Generated map exports (commit only after local load test)
+*.lotpack
+*.lotheader
+*.bin
+*.bmp
+
+# WorldEd/TileZed cache and temp
+*.tbx.bak
+*.tbx~
+Thumbs.db
+.DS_Store
+
+# Temp and scratch exports
+temp/
+tmp/
+export/
+exports/
+_export/
+*_export/
+
+# Large test outputs
+test_output/
+load_test/
+
+# Backups
+*.bak
+*_backup/
+backup/
+
+# Local reference notes (do not commit — keep sensitive refs local)
+source/reference/*.png
+source/reference/*.jpg
+source/reference/*.jpeg
+source/reference/*.pdf
+source/reference/*.osm
+
+# Editor and IDE
+.idea/
+.vscode/
+*.suo
+*.user
+
+# Local working notes
+NOTES.md
+TODO.md
+SCRATCH.md
+local_notes.txt
