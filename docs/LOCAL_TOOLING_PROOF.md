@@ -67,3 +67,25 @@ WorldEd previously showed a `Tilesets.txt` error before the config pass.
 After running the local config tool, WorldEd opened cleanly without the `Tilesets.txt` popup.
 
 This is only a launch proof. WorldEd export and Project Zomboid load testing are still pending before generated map exports are committed.
+
+## TileZed manual painting — paused
+
+**Date paused: 2026-05-30**
+
+Manual tile painting in TileZed was paused due to an unusable tile palette workflow.
+The tile palette did not present usable tiles for block-level layout painting at the
+planning stage, making iterative cell design impractical through the GUI.
+
+A deterministic code-based alternative was added instead:
+
+```text
+source/cellforge/canal-garage-cell.json   — cell layout definition
+source/cellforge/render-cell.ps1          — PNG blockout renderer
+docs/CELLFORGE_BLOCKOUT.md                — CellForge documentation
+```
+
+Manual TileZed painting will resume when:
+- The tile palette workflow is confirmed usable for road/zone-level layout, or
+- B42-compatible tooling is verified and the workflow is re-tested from scratch.
+
+See docs/CELLFORGE_BLOCKOUT.md for the current planning approach.

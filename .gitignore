@@ -54,3 +54,6 @@ NOTES.md
 TODO.md
 SCRATCH.md
 local_notes.txt
+
+# CellForge and other local-only generated output
+.local/
