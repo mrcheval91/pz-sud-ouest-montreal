@@ -93,6 +93,19 @@ license review before that code enters this repository.
 
 ---
 
+## Canonical tool repo
+
+PZMapForge is the canonical tool repo for the deterministic map-planning layer.
+
+- GitHub: https://github.com/mrcheval91/PZMapForge
+- Local: E:\Omni\Zomboid\PZMapForge
+
+This map mod repo no longer contains PZMapForge source. It consumes outputs
+only. See docs/PZMAPFORGE_DEPENDENCY.md for how to invoke PZMapForge against
+this repo's blockout images.
+
+---
+
 ## Next technical steps
 
 In priority order:

@@ -79,10 +79,21 @@ full documentation.
 
 ---
 
+## Image-to-semantic-grid tool: PZMapForge
+
+PZMapForge is the canonical independent tool for converting blockout images
+into deterministic semantic planning grids, preview PNGs, and TileZed-openable
+TMX files. It lives in its own repository: https://github.com/mrcheval91/PZMapForge
+
+See [docs/PZMAPFORGE_DEPENDENCY.md](docs/PZMAPFORGE_DEPENDENCY.md) for how to
+invoke PZMapForge against this repo's blockout images.
+
+---
+
 ## Next steps
 
 WorldEd GUI export was attempted and did not produce lotpack output. The project
-is moving to a deterministic mapmaker layer built on top of CellForge instead.
+is moving to a deterministic mapmaker layer (PZMapForge) instead.
 
 See [docs/MAPMAKER_DIRECTION.md](docs/MAPMAKER_DIRECTION.md) for the full decision
 record, license boundaries, and next technical steps.
