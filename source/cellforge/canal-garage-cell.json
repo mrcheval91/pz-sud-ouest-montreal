@@ -1,0 +1,143 @@
+{
+  "meta": {
+    "name": "canal-garage-cell",
+    "display_name": "Canal Garage Cell",
+    "cell_width": 300,
+    "cell_height": 300,
+    "description": "Phase 1 MVP cell. Fictionalized Sud-Ouest Montreal block: row houses, garage, depanneur, industrial yard.",
+    "status": "PLACEHOLDER - not load-tested, not playable"
+  },
+  "layers": {
+    "background": "grass",
+    "road_fill": "asphalt",
+    "sidewalk_fill": "sidewalk",
+    "building_fill": "building",
+    "roof_fill": "roof",
+    "yard_fill": "dirt",
+    "fence_fill": "fence",
+    "alley_fill": "gravel"
+  },
+  "roads": [
+    {
+      "id": "rue-principale",
+      "label": "Rue Principale",
+      "orientation": "horizontal",
+      "y": 140,
+      "width": 14,
+      "x_start": 0,
+      "x_end": 299,
+      "sidewalk_width": 4
+    },
+    {
+      "id": "ruelle-des-garages",
+      "label": "Ruelle des Garages",
+      "orientation": "vertical",
+      "x": 90,
+      "width": 8,
+      "y_start": 0,
+      "y_end": 139,
+      "sidewalk_width": 2
+    },
+    {
+      "id": "service-alley",
+      "label": "Service Alley",
+      "orientation": "vertical",
+      "x": 190,
+      "width": 5,
+      "y_start": 30,
+      "y_end": 139,
+      "sidewalk_width": 0,
+      "surface": "gravel"
+    }
+  ],
+  "buildings": [
+    {
+      "id": "row-house-1",
+      "type": "row_house",
+      "label": "Row House 1",
+      "x": 10,
+      "y": 40,
+      "width": 16,
+      "height": 24,
+      "storeys": 2
+    },
+    {
+      "id": "row-house-2",
+      "type": "row_house",
+      "label": "Row House 2",
+      "x": 28,
+      "y": 40,
+      "width": 16,
+      "height": 24,
+      "storeys": 2
+    },
+    {
+      "id": "row-house-3",
+      "type": "row_house",
+      "label": "Row House 3",
+      "x": 46,
+      "y": 40,
+      "width": 16,
+      "height": 24,
+      "storeys": 2
+    },
+    {
+      "id": "row-house-4",
+      "type": "row_house",
+      "label": "Row House 4",
+      "x": 64,
+      "y": 40,
+      "width": 16,
+      "height": 24,
+      "storeys": 2
+    },
+    {
+      "id": "depanneur",
+      "type": "corner_store",
+      "label": "Depanneur Principale",
+      "x": 82,
+      "y": 96,
+      "width": 20,
+      "height": 16,
+      "storeys": 1,
+      "note": "Corner of Principale and Ruelle des Garages. Main street-level anchor."
+    },
+    {
+      "id": "garage-bellemare",
+      "type": "garage",
+      "label": "Garage Bellemare",
+      "x": 110,
+      "y": 60,
+      "width": 40,
+      "height": 30,
+      "storeys": 1,
+      "note": "Auto shop with roll-up doors facing Ruelle. Fictional name, no real-world reference."
+    },
+    {
+      "id": "industrial-yard",
+      "type": "industrial_yard",
+      "label": "Fenced Industrial Yard",
+      "x": 165,
+      "y": 20,
+      "width": 80,
+      "height": 100,
+      "fenced": true,
+      "fence_style": "chain_link",
+      "note": "North end of cell. Pallets, propane, rusted pickup. No interior buildings."
+    }
+  ],
+  "landmark": {
+    "id": "garage-sign",
+    "label": "Garage Bellemare sign",
+    "x": 110,
+    "y": 90,
+    "note": "Hand-painted sign facing Rue Principale. Fictional. Primary orientation anchor for the cell."
+  },
+  "spawn": {
+    "id": "spawn-depanneur-sidewalk",
+    "label": "Spawn: depanneur sidewalk",
+    "x": 86,
+    "y": 130,
+    "note": "Sidewalk in front of Depanneur Principale. Default player start."
+  }
+}

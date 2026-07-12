@@ -2,26 +2,103 @@
 
 A fictional Project Zomboid map mod inspired by the southwest boroughs of Montreal.
 
-**Current status: planning and scaffold only. No playable content yet.**
+---
+
+## Current status
+
+| Milestone | State |
+|---|---|
+| Public repo scaffold | Done |
+| Canal Garage Cell JSON source (`source/cellforge/canal-garage-cell.json`) | Done |
+| CellForge renderer — PNG blockout + report | Done |
+| CellForge renderer — TileZed-openable TMX | Done |
+| TMX opened visibly in TileZed | Verified |
+| Project Zomboid load test (lotpack/lotheader/bin) | Not started |
+| WorldEd map export | Not started |
+| Steam Workshop release | Not planned yet |
+| Build 42 compatibility | Unverified |
+
+**Claim boundary:** TileZed-openable planning TMX generated from JSON, visually
+verified in TileZed. Not a Project Zomboid load-tested map export. No playable
+content yet.
 
 ---
 
 ## What this is
 
-This mod adds a custom map cell to Project Zomboid set in a fictionalized version of
-southwest Montreal. The area draws on the character of Ville-Emard, Cote-Saint-Paul,
-the Lachine Canal edge, small industrial corridors, residential streets, alleys,
-corner garages, and depanneur-style streetscapes.
+A custom map cell for Project Zomboid set in a fictionalized southwest Montreal.
+The area draws on the character of Ville-Emard, Cote-Saint-Paul, the Lachine Canal
+edge, small industrial corridors, residential streets, alleys, corner garages, and
+depanneur-style streetscapes.
 
-This is not a 1:1 replica of Montreal. Streets, buildings, and layout are adapted
-for gameplay. Real geography is used for inspiration only.
+This is not a 1:1 replica of Montreal. Layout is adapted for gameplay. Real geography
+is used for inspiration only.
 
-## First focus: one-cell prototype
+---
 
-The initial target is a single 300x300 Project Zomboid cell — working name
-**Canal Garage Cell**. It will include a main road, residential rows, a garage/auto
-shop, a corner store, a fenced industrial yard, and a spawn point. See
-[docs/MVP_CELL_PLAN.md](docs/MVP_CELL_PLAN.md) for the full plan.
+## Canal Garage Cell
+
+Working name for the first 300x300 prototype cell. Contents:
+
+- Rue Principale (main road, east-west)
+- Ruelle des Garages (side street, north)
+- Service alley
+- 4 row houses
+- Depanneur Principale (corner store)
+- Garage Bellemare (auto shop, fictional name)
+- Fenced industrial yard
+- One spawn point (depanneur sidewalk)
+- One landmark (garage sign facing Rue Principale)
+
+See [docs/MVP_CELL_PLAN.md](docs/MVP_CELL_PLAN.md) for the full plan.
+
+---
+
+## CellForge quickstart
+
+CellForge reads `source/cellforge/canal-garage-cell.json` and generates local-only
+planning artifacts. No TileZed installation required to run it.
+
+```powershell
+powershell -ExecutionPolicy Bypass -File "source\cellforge\render-cell.ps1"
+```
+
+Outputs appear under `.local\cellforge\` (created on first run, gitignored):
+
+| File | Purpose |
+|---|---|
+| `canal-garage-cell-blockout.png` | Visual planning PNG (900x900, 3px/tile) |
+| `canal-garage-cell-report.md` | Inventory report (roads, buildings, markers) |
+| `blockout-tiles.png` | 9-tile colour strip used as TileZed tileset image |
+| `canal-garage-cell-basic.tmx` | TileZed-openable cell file (planning only) |
+
+To open the TMX in TileZed: File > Open > `.local\cellforge\canal-garage-cell-basic.tmx`.
+
+See [docs/CELLFORGE_BLOCKOUT.md](docs/CELLFORGE_BLOCKOUT.md) for the GID table and
+full documentation.
+
+---
+
+## Image-to-semantic-grid tool: PZMapForge
+
+PZMapForge is the canonical independent tool for converting blockout images
+into deterministic semantic planning grids, preview PNGs, and TileZed-openable
+TMX files. It lives in its own repository: https://github.com/mrcheval91/PZMapForge
+
+See [docs/PZMAPFORGE_DEPENDENCY.md](docs/PZMAPFORGE_DEPENDENCY.md) for how to
+invoke PZMapForge against this repo's blockout images.
+
+---
+
+## Next steps
+
+WorldEd GUI export was attempted and did not produce lotpack output. The project
+is moving to a deterministic mapmaker layer (PZMapForge) instead.
+
+See [docs/MAPMAKER_DIRECTION.md](docs/MAPMAKER_DIRECTION.md) for the full decision
+record, license boundaries, and next technical steps.
+
+---
 
 ## Neighborhoods in scope
 
@@ -46,4 +123,4 @@ See [docs/REFERENCES_AND_LICENSES.md](docs/REFERENCES_AND_LICENSES.md).
 
 ## Contributing
 
-This is a solo project in early scaffold stage. No contributions accepted yet.
+Solo project in early development. No contributions accepted yet.
